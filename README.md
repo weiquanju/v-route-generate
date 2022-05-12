@@ -2,8 +2,10 @@
 
 # v-route-generate
 
+A tool to generate routes for Vue-Router with Vite.
+
 <a href="https://www.npmjs.com/package/v-route-generate">
-    <img src="https://img.shields.io/badge/npm-1.0.0-brightgreen">
+    <img src="https://img.shields.io/badge/npm-1.0.1-brightgreen">
 </a>
 
 ## Getting Started
