@@ -10,19 +10,19 @@ A tool to generate routes for Vue-Router with Vite.
 
 ## Getting Started
 
-install v-route-generate
+Install v-route-generate
 
-```sh
+```bash
 # Choose a package manager you like.
 
 # NPM
-$ npm install v-route-generate --save
+npm install v-route-generate --save
 
 # Yarn
-$ yarn add v-route-generate
+yarn add v-route-generate
 
 # pnpm
-$ pnpm install v-route-generate
+pnpm install v-route-generate
 ```
 
 ## Usage
