@@ -67,7 +67,7 @@ Tree of the `src/views/` dir:
 ```
 ### Result Example
 
-The result is that the TS file does not use TSX, which is just for convenience.
+The result is that the TS file does not use TSX, which is just for the convenience of display.
 
 ```tsx
 [
