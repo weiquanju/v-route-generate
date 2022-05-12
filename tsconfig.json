@@ -1,0 +1,16 @@
+{
+    "extends": "./tsconfig.base.json",
+    "include": ["index.ts"],
+    "exclude": [],
+    "compilerOptions": {
+      "composite": true,
+      "baseUrl": ".",
+      "lib": [
+        "ES2016",
+        "DOM",
+        "DOM.Iterable"
+      ],
+      "types": ["node"]
+    }
+  }
+  

@@ -1,0 +1,49 @@
+{
+  "name": "v-route-generate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.ts",
+  "module": "./src/index.js",
+  "homepage": "https://github.com/weiquanju/v-route-generate",
+  "keywords": [
+    "Vue",
+    "Vite",
+    "Router",
+    "generate"
+  ],
+  "author": "",
+  "license": "MIT",
+  "files": [
+    "src/*"
+  ],
+  "exports": {
+    ".": {
+      "import": "./src/index.js"
+    },
+    "./src/*": "./src/*"
+  },
+  "types": "./src/index.d.ts",
+  "peerDependencies": {
+    "vue": "^3.2.33",
+    "vue-router": "^4.0.14"
+  },
+  "devDependencies": {
+    "vite": "^2.9.5"
+  },
+  "scripts": {
+    "build": "tsc src/index.ts"
+  },
+  "bugs": {
+    "url": "https://github.com/weiquanju/v-route-generate/issues"
+  },
+  "dependencies": {
+    "@babel/types": "^7.17.10",
+    "@types/node": "^17.0.32",
+    "typescript": "^4.6.4"
+  },
+  "bundleDependencies": [
+    "@babel/types",
+    "@types/node",
+    "typescript"
+  ]
+}
