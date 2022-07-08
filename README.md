@@ -33,8 +33,12 @@ pnpm install v-route-generate
 // file: src/router/index.ts
 import { createRouter, createWebHistory } from "vue-router";
 import { getRoutes } from "v-route-generate";
-const routes = getRoutes(import.meta.glob("src/views/**/**.vue"), {
-  pathRoot: "views/",
+/**
+ * @link vite glob-import https://vitejs.dev/guide/features.html#glob-import
+ * The `views` path is in `src/`.
+ */
+const routes = getRoutes(import.meta.glob("../views/**/**.vue"), {
+  pathRoot: "../views/",
 });
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

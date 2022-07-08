@@ -8,10 +8,10 @@ export function getRoutes(meta: MetaInfo, options: { pathRoot: string }) {
   /**
    * Regular matching `src` + `pathroot` path part
    * Example:
-   *   new RegExp(`[./]*views/`)
+   *   new RegExp(`../views/`)
    *   The '../views/' part of '../views/HomeView.vue' will be removed
    */
-  const reg = new RegExp(`[./]*${options.pathRoot}`);
+  const reg = new RegExp(options.pathRoot);
 
   /**
    * Here is to regenerate the tree structure data from the flat path information
