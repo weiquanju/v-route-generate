@@ -4,6 +4,7 @@ const { peerDependencies } = require('./package.json')
 
 const entryFile = 'src/index.ts'
 const shared = {
+  sourcemap: false,
   entryPoints: [entryFile],
   bundle: true,
   external: Object.keys(peerDependencies),
@@ -11,12 +12,19 @@ const shared = {
 
 build({
   ...shared,
-  outfile: 'dist/index.js',
+  outfile: 'dist/index.cjs',
+  format: 'cjs',
 })
 
 build({
   ...shared,
-  outfile: 'dist/index.esm.js',
+  outfile: 'dist/index.js',
+  format: 'iife',
+})
+
+build({
+  ...shared,
+  outfile: 'dist/index.mjs',
   format: 'esm',
 })
 

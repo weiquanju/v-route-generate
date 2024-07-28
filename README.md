@@ -110,20 +110,50 @@ The result is that the TS file does not use TSX, which is just for the convenien
 
 - pascal style
 
-- suffix is View
+- Suffix is `View`
 
     e.g. `HelloWorldView.vue`
 
-- homepage is `HomeView.vue`
+- Homepage is `HomeView.vue` or `Index.uve`, `index.vue`
+- 
+- NotFound page is: `404.vue` or `notfound.vue`, `NotFound.vue`
 
-## Path ID or Param
+###  Dynamic Route Matching with Params
 
-Not supported now. Use `sessionStorage` to implement, Please.
+- One parameter
+
+  `src/views/User/[userId].vue` (file)  
+
+   → `/User/:userId` (vue route config path)  
+   
+   → `/User/123`
+
+
+```js
+$route.params.pid = '123'
+```
+- multi parameter
+
+  `src/views/User/list-[pid]-[userName].vue` (file) 
+
+  → `/User/list-:pid-:userName` (vue route config path) 
+
+  → `/User/list-456-Foo`
+
+```js
+$route.params.pid = '123'
+$route.params.userName = 'Foo'
+```
+
 ## Contribution
 
 Welcome to contribute code.
 
 ```bash
+# pnpm
+pnpm i
+
+# npm
 npm i
 ```
 
@@ -131,4 +161,4 @@ npm i
 
 MIT
 
-Copyright (c) 20022-present, Quanju Wei
+Copyright (c) 2022-present, Quanju Wei

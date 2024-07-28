@@ -1,16 +1,12 @@
 {
-    "extends": "./tsconfig.base.json",
-    "include": ["index.ts"],
-    "exclude": [],
-    "compilerOptions": {
-      "composite": true,
-      "baseUrl": ".",
-      "lib": [
-        "ES2016",
-        "DOM",
-        "DOM.Iterable"
-      ],
-      "types": ["node"]
-    }
+  "extends": "./tsconfig.base.json",
+  "include": ["src/index.ts"],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "outDir": "./dist",
+    "composite": true,
+    "baseUrl": ".",
+    "lib": ["ES2016", "DOM", "DOM.Iterable"],
+    "types": ["node", "vite/client"]
   }
-  
+}
