@@ -1,0 +1,20 @@
+{
+    "main": "./index.js",
+    "types": "./index.d.ts",
+    "unpkg": "./index.js",
+    "jsdelivr": "./index.js",
+    "module": "./index.mjs",
+    "exports": {
+        ".": {
+            "import": {
+                "node": "./index.cjs",
+                "types": "./index.d.ts",
+                "default": "./index.mjs"
+            }
+        },
+        "./index.cjs": "./index.cjs",
+        "./index.mjs": "./index.mjs",
+        "./index.js": "./index.js",
+        "./index.d.ts": "./index.d.ts"
+    }
+}
