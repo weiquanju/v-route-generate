@@ -5,7 +5,7 @@ const packageExpose = require('./expose.json')
 const fs = require('node:fs/promises')
 const path = require('path')
 
-const version = '1.1.1'
+const version = '1.1.3'
 
 const entryFile = './index.ts'
 const shared = {
@@ -17,19 +17,19 @@ const shared = {
 
 build({
   ...shared,
-  outfile: 'dist/index.cjs',
+  outfile: '../v-route-generate-dist/index.cjs',
   format: 'cjs',
 })
 
 build({
   ...shared,
-  outfile: 'dist/index.js',
+  outfile: '../v-route-generate-dist/index.js',
   format: 'iife',
 })
 
 build({
   ...shared,
-  outfile: 'dist/index.mjs',
+  outfile: '../v-route-generate-dist/index.mjs',
   format: 'esm',
 })
 
@@ -38,19 +38,19 @@ build({
 const after = async () => {
   await new Generator({
     entry: entryFile,
-    output: 'dist/index.d.ts'
+    output: '../v-route-generate-dist/index.d.ts'
   }).generate()
 
   package.version = version
 
-  await fs.writeFile('./dist/package.json', JSON.stringify({ ...package, ...packageExpose, devDependencies: undefined, scripts: undefined }, null, '  '))
+  await fs.writeFile('../v-route-generate-dist/package.json', JSON.stringify({ ...package, ...packageExpose, devDependencies: undefined, scripts: undefined }, null, '  '))
   await fs.writeFile('./package.json', JSON.stringify(package, null, '  '))
 
   const setVersion = (s) => s.replace(/npm-\d+\.\d+\.\d+/mg, 'npm-' + version)
 
   await Promise.allSettled(['README.md', 'README-ZH.md'].map(async (f) => {
     const readPath = path.resolve(__dirname, f)
-    const writePath = path.resolve(__dirname, 'dist', f)
+    const writePath = path.resolve(__dirname, '../v-route-generate-dist', f)
     const data = await fs.readFile(readPath, { encoding: 'utf-8' })
     return await fs.writeFile(writePath, setVersion(data), { encoding: 'utf-8', flag: 'w' })
   }))
