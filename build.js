@@ -52,6 +52,7 @@ const after = async () => {
     const readPath = path.resolve(__dirname, f)
     const writePath = path.resolve(__dirname, '../v-route-generate-dist', f)
     const data = await fs.readFile(readPath, { encoding: 'utf-8' })
+    await fs.writeFile(readPath, setVersion(data), { encoding: 'utf-8', flag: 'w' })
     return await fs.writeFile(writePath, setVersion(data), { encoding: 'utf-8', flag: 'w' })
   }))
 }

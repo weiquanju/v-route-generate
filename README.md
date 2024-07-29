@@ -5,7 +5,7 @@ Automatically generate routing configuration based on file path. Based on Vite, 
 [中文文档](https://github.com/weiquanju/v-route-generate/blob/main/README-ZH.md)
 
 <a href="https://www.npmjs.com/package/v-route-generate">
-    <img src="https://img.shields.io/badge/npm-1.1.1-brightgreen">
+    <img src="https://img.shields.io/badge/npm-1.1.3-brightgreen">
 </a>
 
 ## Getting Started

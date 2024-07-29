@@ -5,7 +5,7 @@
 [English](./README.md)
 
 <a href="https://www.npmjs.com/package/v-route-generate">
-    <img src="https://img.shields.io/badge/npm-1.1.1-brightgreen">
+    <img src="https://img.shields.io/badge/npm-1.1.3-brightgreen">
 </a>
 
 ## 开始
