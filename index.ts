@@ -85,7 +85,9 @@ const getPath = (name: string, deep: number) =>
  * @returns 
  */
 const parsePathParams = (path: string) => path.replace(/\[([^\]]+)\]+/g, (m, m0) => `:${m0}`)
-// Convert the object tree data structure to Vue router array tree structure.
+/**
+ * Convert the object tree data structure to Vue router array tree structure.
+ */
 function toArr(data: Path, meta: MetaInfo, deep: number): Route[] {
   return Object.entries(data).map<Route>(([name, pathInfo]) => {
     if (typeof pathInfo === "string") {
