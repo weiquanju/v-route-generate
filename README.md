@@ -2,10 +2,12 @@
 
 # v-route-generate
 
-A tool to generate routes for Vue-Router with Vite.
+Automatically generate routing configuration based on file path. Based on Vite, Vue, Vue Router
+
+[中文文档](./README-ZH.md)
 
 <a href="https://www.npmjs.com/package/v-route-generate">
-    <img src="https://img.shields.io/badge/npm-1.0.2-brightgreen">
+    <img src="https://img.shields.io/badge/npm-1.1.1-brightgreen">
 </a>
 
 ## Getting Started
@@ -71,7 +73,7 @@ Tree of the `src/views/` dir:
 ```
 ### Result Example
 
-The result is that the TS file does not use TSX, which is just for the convenience of display.
+This example does not confirm the results, it is convenient to use JSX/TSX for display.
 
 ```tsx
 [
@@ -108,37 +110,36 @@ The result is that the TS file does not use TSX, which is just for the convenien
 
 ## Naming rules
 
-- pascal style
+- PascalStyle (**Recommended**)
 
-- Suffix is `View`
+- Homepage filename is `HomeView.vue` or `Index.uve`, `index.vue` (**Must**)
 
-    e.g. `HelloWorldView.vue`
-
-- Homepage is `HomeView.vue` or `Index.uve`, `index.vue`
-- 
-- NotFound page is: `404.vue` or `notfound.vue`, `NotFound.vue`
+- NotFound page is: `404.vue` or `notfound.vue`, `NotFound.vue` (**Must**)
 
 ###  Dynamic Route Matching with Params
 
-- One parameter
+- **One parameter**
 
-  `src/views/User/[userId].vue` (file)  
+`src/views/User/[userId].vue` (File)  
 
-   → `/User/:userId` (vue route config path)  
+   → `/User/:userId` (Vue route configure parameter of `path`)
    
-   → `/User/123`
+   → `/User/123` (Browser access path)
 
+Route Params in Vue SFC
 
 ```js
 $route.params.pid = '123'
 ```
-- multi parameter
+- **multi parameter**
 
-  `src/views/User/list-[pid]-[userName].vue` (file) 
+`src/views/User/list-[pid]-[userName].vue` (File) 
 
-  → `/User/list-:pid-:userName` (vue route config path) 
+  → `/User/list-:pid-:userName` (Vue route configure parameter of `path`) 
 
-  → `/User/list-456-Foo`
+  → `/User/list-456-Foo` (Browser access path)
+
+Route Params in Vue SFC
 
 ```js
 $route.params.pid = '123'
@@ -150,11 +151,15 @@ $route.params.userName = 'Foo'
 Welcome to contribute code.
 
 ```bash
-# pnpm
-pnpm i
-
-# npm
+# install
+pnpm install
+# or
 npm i
+
+# build
+pnpm run build
+# or
+npm run build
 ```
 
 ## License
