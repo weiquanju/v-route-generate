@@ -5,32 +5,42 @@ const packageExpose = require('./expose.json')
 const fs = require('node:fs/promises')
 const path = require('path')
 
-const version = '1.1.3'
+const version = '1.2.0'
 
-const entryFile = './index.ts'
+const entryFile = './src/index.ts'
 const shared = {
   sourcemap: false,
   entryPoints: [entryFile],
   bundle: true,
   external: Object.keys(package.peerDependencies),
 }
+const banner = {
+  js: `/**
+ * v-route-generate 
+ * @version ${version}
+ * @author weiquanju <anbine@qq.com>
+ */`
+}
 
 build({
   ...shared,
   outfile: '../v-route-generate-dist/index.cjs',
   format: 'cjs',
+  banner,
 })
 
 build({
   ...shared,
   outfile: '../v-route-generate-dist/index.js',
   format: 'iife',
+  banner,
 })
 
 build({
   ...shared,
   outfile: '../v-route-generate-dist/index.mjs',
   format: 'esm',
+  banner,
 })
 
 
@@ -43,7 +53,7 @@ const after = async () => {
 
   package.version = version
 
-  await fs.writeFile('../v-route-generate-dist/package.json', JSON.stringify({ ...package, ...packageExpose, devDependencies: undefined, scripts: undefined }, null, '  '))
+  await fs.writeFile('../v-route-generate-dist/package.json', JSON.stringify({ ...package, ...packageExpose, devDependencies: { vite: "^2.9.0" }, scripts: undefined, packageManager: undefined }, null, '  '))
   await fs.writeFile('./package.json', JSON.stringify(package, null, '  '))
 
   const setVersion = (s) => s.replace(/npm-\d+\.\d+\.\d+/mg, 'npm-' + version)

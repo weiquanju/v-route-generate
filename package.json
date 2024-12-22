@@ -1,16 +1,24 @@
 {
   "name": "v-route-generate",
-  "version": "1.1.3",
-  "description": "Automatically generate routing configuration based on file path. Based on Vite, Vue, Vue Router. 基于Vite,Vue,Vue-Router，根据文件路径，自动生成路由配置。",
+  "version": "1.2.0",
+  "description": "Automate the tedious task of creating Vue Router configurations. Simply define your page components, and let this plugin handle the rest.  根据页面文件目录树，自动生成路由配置。",
   "homepage": "https://github.com/weiquanju/v-route-generate",
   "keywords": [
     "Vue",
     "Vite",
-    "Router",
-    "generator",
-    "generate"
+    "Vue Router",
+    "route generator",
+    "route generator",
+    "dynamic routing",
+    "automatic routing",
+    "vue3",
+    "vue2",
+    "SPA",
+    "code generation",
+    "vue route generator",
+    "vite dynamic routing"
   ],
-  "author": "Quanju Wei",
+  "author": "weiquanju",
   "license": "MIT",
   "files": [
     "*"
@@ -33,5 +41,6 @@
   },
   "bugs": {
     "url": "https://github.com/weiquanju/v-route-generate/issues"
-  }
+  },
+  "packageManager": "pnpm@9.15.1+sha512.1acb565e6193efbebda772702950469150cf12bcc764262e7587e71d19dc98a423dff9536e57ea44c49bdf790ff694e83c27be5faa23d67e0c033b583be4bfcf"
 }

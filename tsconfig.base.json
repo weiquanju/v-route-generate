@@ -18,7 +18,6 @@
     "isolatedModules": true,
     // For `<script setup>`
     // See <https://devblogs.microsoft.com/typescript/announcing-typescript-4-5-beta/#preserve-value-imports>
-    "preserveValueImports": true,
     "ignoreDeprecations": "5.0",
     "verbatimModuleSyntax": true,
 
