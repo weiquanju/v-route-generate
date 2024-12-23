@@ -4,53 +4,69 @@ const package = require('./package.json')
 const packageExpose = require('./expose.json')
 const fs = require('node:fs/promises')
 const path = require('path')
+const { resolve } = require('node:path')
 
-const version = '1.2.0'
+const version = '1.2.1'
 
 const entryFile = './src/index.ts'
-const shared = {
-  sourcemap: false,
-  entryPoints: [entryFile],
-  bundle: true,
-  external: Object.keys(package.peerDependencies),
-}
-const banner = {
-  js: `/**
+
+const start = async () => {
+
+  const shared = {
+    sourcemap: false,
+    entryPoints: [entryFile],
+    bundle: true,
+    external: Object.keys(package.peerDependencies),
+  }
+  const banner = {
+    js: `/**
  * v-route-generate 
  * @version ${version}
  * @author weiquanju <anbine@qq.com>
  */`
+  }
+  // clear dist
+  await fs.rm('../v-route-generate-dist', { recursive: true, force: true })
+
+  await Promise.allSettled([
+    build({
+      ...shared,
+      outfile: '../v-route-generate-dist/index.cjs',
+      format: 'cjs',
+      banner,
+    }),
+    build({
+      ...shared,
+      outfile: '../v-route-generate-dist/index.js',
+      format: 'iife',
+      banner,
+    }),
+    build({
+      ...shared,
+      outfile: '../v-route-generate-dist/index.mjs',
+      format: 'esm',
+      banner,
+    })
+  ])
 }
-
-build({
-  ...shared,
-  outfile: '../v-route-generate-dist/index.cjs',
-  format: 'cjs',
-  banner,
-})
-
-build({
-  ...shared,
-  outfile: '../v-route-generate-dist/index.js',
-  format: 'iife',
-  banner,
-})
-
-build({
-  ...shared,
-  outfile: '../v-route-generate-dist/index.mjs',
-  format: 'esm',
-  banner,
-})
-
 
 
 const after = async () => {
-  await new Generator({
-    entry: entryFile,
-    output: '../v-route-generate-dist/index.d.ts'
-  }).generate()
 
+  // copy package.json 到 src 下
+  await fs.copyFile('./package.json', './src/package.json')
+
+  await new Generator({
+    entry: resolve(__dirname, './src/index.ts'),
+    root: resolve(__dirname, './src'),
+    output: resolve(__dirname, '../v-route-generate-dist/index.d.ts')
+  }, true, true).generate().finally(() => {
+    setTimeout(() => {
+      fs.rm('./src/package.json', { force: true })
+    }, 10);
+  })
+
+  
   package.version = version
 
   await fs.writeFile('../v-route-generate-dist/package.json', JSON.stringify({ ...package, ...packageExpose, devDependencies: { vite: "^2.9.0" }, scripts: undefined, packageManager: undefined }, null, '  '))
@@ -67,4 +83,7 @@ const after = async () => {
   }))
 }
 
-after()
+  ; (async () => {
+    await start()
+    await after()
+  })();

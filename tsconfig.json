@@ -1,11 +1,10 @@
 {
   "extends": "./tsconfig.base.json",
-  "include": ["./src/index.ts"],
+  "include": ["src/index.ts"],
   "exclude": ["node_modules"],
   "compilerOptions": {
     "outDir": "./dist",
     "composite": false,
-    "baseUrl": ".",
     "lib": ["ES2015", "DOM", "DOM.Iterable"],
     "types": ["node", "vite/client"]
   }

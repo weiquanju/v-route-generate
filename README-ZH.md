@@ -26,7 +26,7 @@
 [English](./README.md)
 
 <a href="https://www.npmjs.com/package/v-route-generate">
-    <img src="https://img.shields.io/badge/npm-1.2.0-brightgreen">
+    <img src="https://img.shields.io/badge/npm-1.2.1-brightgreen">
 </a>
 
 ### 开始

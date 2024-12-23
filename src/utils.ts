@@ -1,4 +1,5 @@
-import type { GetRoutesOptions, MetaInfo, Path, PathOrigin, Route, RouteStr } from "./types";
+import type { RouteRecordRaw } from "vue-router";
+import type { GetRoutesOptions, MetaInfo, Path, PathOrigin, RouteStr } from "./types";
 
 let isDebugger: boolean | undefined = false;
 
@@ -29,8 +30,8 @@ const getRouteName = (pathRoot: string, path: string) => path
 /**
 * Convert the object tree data structure to Vue router array tree structure.
 */
-export function toArr(data: Path, meta: MetaInfo, deep: number, options: GetRoutesOptions): Route[] {
-    return Object.entries(data).map<Route>(([name, pathInfo]) => {
+export function toArr(data: Path, meta: MetaInfo, deep: number, options: GetRoutesOptions): RouteRecordRaw[] {
+    return Object.entries(data).map<RouteRecordRaw>(([name, pathInfo]) => {
         if (typeof pathInfo === "string") {
             const routeName = getRouteName(options.pathRoot, pathInfo.toString())
             return { name: routeName, path: parsePathParams(getPath(name, deep)), component: meta[pathInfo] };
