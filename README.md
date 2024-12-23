@@ -46,7 +46,7 @@ pnpm install v-route-generate
 
 ### Usage
 
-##### Dir tree
+##### Dir tree example
 
 Tree of the `src/views/` dir:
 
@@ -71,6 +71,7 @@ import { getRoutes } from "v-route-generate";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+  // 👇 Use globe syntax to retrieve all files in the page view directory
   routes: getRoutes(import.meta.glob("../views/**/**.vue"), {
     /** 
      * Required. The root path of the directory tree, using relative paths, ending with '/'
@@ -120,6 +121,14 @@ export default router;
 - Homepage filename is `HomeView.vue` or `Index.uve`, `index.vue` (**Must**)
 
 - NotFound page is `404.vue` or `notfound.vue`, `NotFound.vue` (**Must**)
+
+### Support file formats
+
+- `.vue`
+
+- `.tsx`
+
+- `.jsx`
 
 ##### Dynamic Route Matching with Params
 

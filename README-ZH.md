@@ -66,6 +66,7 @@ import { getRoutes } from "v-route-generate";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+  // 使用glob，获取页面视图目录下所有文件
   routes: getRoutes(import.meta.glob("../views/**/**.vue"), {
     pathRoot: "../views/", //必填。目录树的根路径，使用相对路径，`/`结尾
     debugger: true,//用于测试，打印路由
