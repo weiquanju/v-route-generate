@@ -1,6 +1,6 @@
 {
   "name": "v-route-generate",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Automate the tedious task of creating Vue Router configurations. Simply define your page components, and let this plugin handle the rest.  根据页面文件目录树，自动生成路由配置。",
   "homepage": "https://github.com/weiquanju/v-route-generate",
   "keywords": [

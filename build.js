@@ -6,7 +6,7 @@ const fs = require('node:fs/promises')
 const path = require('path')
 const { resolve } = require('node:path')
 
-const version = '1.2.1'
+const version = '1.2.2'
 
 const entryFile = './src/index.ts'
 
